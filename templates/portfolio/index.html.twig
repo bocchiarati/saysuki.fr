@@ -1,0 +1,97 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} - Mon Portfolio{% endblock %}
+
+{% block body %}
+    <section class="bg-gray-100 py-16 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Bonjour, je suis Sofien</h1>
+        <p class="text-lg md:text-xl text-gray-600">Future Développeur web passionné | PHP & JavaScript</p>
+        <p class="text-lg md:text-xl text-gray-600">Actuellement en deuxième année de BUT informatique à l'IUT Nancy Charlemagne</p>
+    </section>
+
+    <section id="about" class="py-12 px-4 md:px-8">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-2xl font-semibold mb-4">À propos de moi</h2>
+            <p class="text-gray-700 leading-relaxed">
+                Je m'appelle Sofien Cherchari, j'ai 19 ans et je suis actuellement étudiant en deuxième année de BUT Informatique à l'IUT Nancy-Charlemagne.
+                Passionné par le développement web, je me forme à la fois sur les technologies backend comme PHP et sur des outils frontend modernes.
+            </p>
+        </div>
+
+        <div class="max-w-4xl mx-auto mt-12">
+            <h2 class="text-2xl font-semibold mb-4">Mon Stage</h2>
+        </div>
+
+        <section class="bg-gray-200 py-12 px-4 md:px-8 w-[70%] justify-self-center">
+            <div class="mx-auto">
+                <h2 class="text-2xl font-semibold mb-6 ml-12"></h2>
+                <div class="text-gray-600 text-center">
+                    <h3 class="text-xl font-semibold mb-6 ml-12">Présentation du stage</h3>
+                    <p class="text-justify">
+                        Dans le cadre de ma 2ᵉ année de BUT Informatique à l’IUT Nancy-Charlemagne, j’ai effectué un stage de 8 semaines au Service du Numérique de l’ICN Business School. J’y ai développé une application web pour automatiser la gestion des astreintes, jusqu’alors faite manuellement. Ce projet m’a permis d’appliquer mes compétences en Symfony, base de données avec Doctrine, gestion de calendriers et envoi d’e-mails. J’ai aussi appris à répondre aux besoins des utilisateurs, à documenter mon travail et à gagner en autonomie. Ce stage a été une expérience formatrice à la fois technique et professionnelle.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mx-auto">
+                <h2 class="text-2xl font-semibold mb-6 ml-12"></h2>
+                <div class="text-gray-600 text-center">
+                    <h3 class="text-xl font-semibold mb-6 ml-12">Présentation de l'entreprise</h3>
+                    <p class="text-justify">
+                        ICN Business School est une institution académique reconnue pour la qualité de ses formations en management et son engagement envers l’innovation pédagogique et technologique. L’école entretient des liens étroits avec le monde professionnel, favorisant des échanges constants avec les entreprises. Elle dispose d’un service informatique interne, le SDN (Service du Numérique), chargé de la gestion complète des infrastructures informatiques : réseaux, serveurs, systèmes, équipements et assistance aux utilisateurs. Composée d’experts en infrastructure, développement et support technique, cette équipe assure le bon fonctionnement et l’optimisation des outils numériques au sein de l’établissement.
+                    </p>
+                </div>
+            </div>
+
+            <div class="mx-auto">
+                <h2 class="text-2xl font-semibold mb-6 ml-12"></h2>
+                <div class="text-gray-600 text-center">
+                    <h3 class="text-xl font-semibold mb-6 ml-12">Mission du stage</h3>
+                    <p class="text-justify">
+                        Ma mission de stage consistait à concevoir et développer une application web permettant d’automatiser la gestion des astreintes au sein du Service du Numérique. Ce projet avait pour objectif de remplacer un système manuel peu efficace par un outil facilitant la planification, le suivi et la validation des périodes d’astreinte grâces à toutes sortes d'automatisation sur la nouvelle plateforme que j'ai créé. J’ai travaillé avec Symfony, intégré un calendrier dynamique, automatisé des exports et configuré l’envoi d’e-mails pour répondre aux besoins concrets de l’équipe.
+                    </p>
+                    <p class="mt-2">
+                        ➡️<a class="text-blue-700" href="{{ path("app_maquette") }}" target="_blank">Maquette semi-fonctionnel de mon projet de stage</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="mx-auto">
+                <h2 class="text-2xl font-semibold mb-6 ml-12"></h2>
+                <div class="text-gray-600 text-center">
+                    <h3 class="text-xl font-semibold mb-6 ml-12">Retour Critique</h3>
+                    <p class="text-justify">
+                        Ce stage a été pour moi une expérience particulièrement enrichissante, tant sur le plan technique que personnel. Le gestionnaire d’astreinte que j’ai conçu et développé est aujourd’hui déployé et utilisé par l’équipe du SDN, ce dont je suis très fier. Bien que certaines fonctionnalités pourraient encore être améliorées ou optimisées, notamment pour renforcer l’ergonomie ou automatiser davantage certaines tâches, je considère que l’application est très complète au regard du temps imparti. En seulement huit semaines, j’ai pu concevoir une solution fonctionnelle, stable et utile, ce qui me donne confiance en mes capacités à répondre à des besoins concrets en entreprise. Cette expérience m’a permis de prendre du recul sur mon travail, d’identifier les points à perfectionner, mais surtout de constater mes progrès et ma capacité à mener un projet du début à la fin.                    </p>
+                </div>
+            </div>
+        </section>
+
+    <section class="bg-gray-200 py-12 px-4 md:px-8 w-1/2 justify-self-center mt-20">
+        <div class="mx-auto">
+            <h2 class="text-2xl font-semibold mb-6 ml-12">Mes compétences</h2>
+            <div class="text-gray-600 text-center">
+                <p><a href="{{ path("app_portfolio_competences", {competence: "generales"}) }}">Générales</a></p>
+                <p><a href="{{ path("app_portfolio_competences", {competence: "specifique"})  }}">Web - Mobiles</a></p>
+                <p><a href="{{ path("app_portfolio_competences", {competence: "technique"})  }}">Programmation - Développement</a></p>
+            </div>
+        </div>
+    </section>
+
+
+    <div class="max-w-4xl mx-auto mt-12">
+        <h2 class="text-2xl font-semibold mb-4">Axes d'améliorations pour l'année prochaine</h2>
+    </div>
+
+    <section class="bg-gray-200 py-12 px-4 md:px-8 w-[70%] justify-self-center">
+        <div class="mx-auto">
+            <h2 class="text-2xl font-semibold mb-6 ml-12"></h2>
+            <div class="text-gray-600 text-center">
+                <p class="text-justify">
+                    Au cours de ce stage, j’ai pu consolider de nombreuses compétences techniques, notamment en développement web backend avec Symfony et en gestion de projet. Toutefois, certains axes d’amélioration se dégagent clairement pour l’année à venir. J’aimerais approfondir mes connaissances en développement mobile, domaine que j’ai peu abordé jusqu’à présent. De même, bien que j’aie compris les fondements des architectures à base de micro-services, je souhaite en explorer davantage les implications concrètes à travers de nouveaux projets. Enfin, je compte renforcer mes compétences en administration système et déploiement, en me formant sur des outils comme Docker ou des environnements cloud, pour devenir plus autonome dans la mise en production d'applications. Ces axes me permettront d’élargir mon profil de développeur full-stack et de répondre à des besoins techniques plus variés.
+                </p>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Maquette MyAstreinte</title>
+    <link rel="icon" href="{{ asset('assets/images/flavicon.png') }}">
+
+    {% block stylesheets %}{% endblock %}
+
+    {% block javascripts %}
+        {% block importmap %}{{ importmap('app') }}{% endblock %}
+    {% endblock %}
+
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js'></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@3.1.2/dist/flowbite.min.css" rel="stylesheet" />
+
+</head>
+<body class="bg-gray-100 text-gray-900">
+<header class="bg-gray-800 text-white shadow-md py-4">
+    <div class="container mx-auto flex justify-between items-center px-6">
+        <nav>
+            <a href="#" class="text-3xl font-semibold tracking-wide">MyAstreinte</a>
+        </nav>
+        <nav class="flex items-center gap-6">
+            <div class="relative" data-controller="dropdown">
+                <button data-action="dropdown#toggle" class="text-lg font-medium hover:text-gray-300 transition flex items-center">
+                    Menu
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div id="dropdown-menu" data-dropdown-target="menu" class="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-gray-800 ring-1 ring-black ring-opacity-5 hidden z-50">
+                    <div class="py-1">
+                        <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-gray-700">Votre Signature</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-gray-700" target="_blank">Fiche d'intervention</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-gray-700">Valider vos interventions</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-gray-700">Téléphone</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-gray-700">Couleurs</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-white hover:bg-gray-700">Emoji</a>
+                    </div>
+                </div>
+            </div>
+            <span class="text-lg font-semibold">@ TEST, test</span>
+        </nav>
+    </div>
+</header>
+
+{# MESSAGE FLASH #}
+{% for label, messages in app.flashes %}
+    {% for message in messages %}
+        <div class="fixed top-4 left-[42%] p-10 rounded shadow transition-opacity duration-500 border
+                        {% if label == 'success' %} bg-green-100 text-green-800 border-green-800
+                        {% elseif label == 'error' %} bg-red-100 text-red-800 border-red-800{% endif %}"
+             data-controller="flash-message">
+            {{ message|nl2br }}
+        </div>
+    {% endfor %}
+{% endfor %}
+
+<main class="container mx-auto w-[95%] mt-6 p-6 bg-white rounded-lg shadow-md">
+    {% block body %}
+        <div class="container mx-auto max-w-screen p-6 bg-white rounded-lg shadow-md">
+            <div class="flex justify-between">
+                <h1 class="text-3xl my-auto font-bold text-gray-900 mb-6 justify-self-bottom">📅 Calendrier des astreintes</h1>
+                <div class="flex flex-col sm:flex-row w-full sm:w-[50%] space-y-2 sm:space-y-0 sm:space-x-2 mb-3">
+
+                    {% if is_granted("ROLE_ADMIN_ASTREINTE") and app.current_route != "app_home"%}
+
+                        <div id="autoGenerate"
+                             role="button" tabindex="0"
+                             class="w-full my-auto text-center bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-medium text-base py-2 px-3 rounded shadow-md transition-all duration-200 ease-in-out transform hover:scale-[1.02] active:scale-95 focus:outline-none focus:ring-2 focus:ring-blue-400 cursor-pointer">
+                            Générer mois prochain
+                        </div>
+                        <div id="autoGenerateRest"
+                             role="button" tabindex="0"
+                             class="w-full text-center bg-blue-600 hover:bg-blue-700 active:bg-blue-800 text-white font-medium text-base py-2 px-3 rounded shadow-md transition-all duration-200 ease-in-out transform hover:scale-[1.02] active:scale-95 focus:outline-none focus:ring-2 focus:ring-blue-400 cursor-pointer">
+                            Générer reste du mois
+                        </div>
+                        <div id="save"
+                             role="button" tabindex="0"
+                             class="w-full text-center bg-green-600 hover:bg-green-700 active:bg-green-800 text-white font-medium text-base py-2 px-3 rounded shadow-md transition-all duration-200 ease-in-out transform hover:scale-[1.02] active:scale-95 focus:outline-none focus:ring-2 focus:ring-green-400 cursor-pointer">
+                            Enregistrer
+                        </div>
+                    {% endif %}
+
+                    <a href="#"
+                       class="w-full block text-center bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 text-white font-medium text-base py-2 px-3 rounded shadow-md transition-all duration-200 ease-in-out transform hover:scale-[1.02] active:scale-95 focus:outline-none focus:ring-2 focus:ring-indigo-400">
+                        Exporter
+                    </a>
+
+                        <a href="#"
+                           class="w-full block text-center bg-purple-600 hover:bg-purple-700 active:bg-purple-800 text-white font-medium text-base py-2 px-3 rounded shadow-md transition-all duration-200 ease-in-out transform hover:scale-[1.02] active:scale-95 focus:outline-none focus:ring-2 focus:ring-purple-400">
+                            Graphique
+                        </a>
+                </div>
+
+            </div>
+
+            <div class="flex flex-col md:flex-row gap-6">
+                <!-- Calendrier -->
+                <div id="calendar-container" class="w-[95%] mb-auto p-6 rounded-xl shadow-lg bg-orange-400 pb-5 leading-relaxed overflow-visible block h-auto">
+                    <div id="calendar" class="w-full bg-white rounded-md shadow-sm p-4"></div>
+                </div>
+
+                <!-- Événements externes -->
+                <div id="external-events" class="w-full md:w-1/6 space-y-4">
+                    <div class="fc-event p-2 rounded-lg text-center shadow-md cursor-pointer transition transform hover:scale-105 border border-white/40"
+                         style="background: purple"
+                         data-event='{
+                            "title": "CHERCHARI, Sofien",
+                            "color": "purple",
+                            "id": "1"
+                            }'>
+                        <p class="text-lg font-semibold drop-shadow-md" style="color: #ffffff">CHERCHARI, Sofien</p>
+                        <p class="text-lg font-semibold text-white drop-shadow-md" style="color: #ffffff}">602120553</p>
+                    </div>
+
+                    <div class="fc-event p-2 rounded-lg text-center shadow-md cursor-pointer transition transform hover:scale-105 border border-white/40"
+                         style="background: green"
+                         data-event='{
+                                "title": "Alex",
+                                "color": "green",
+                                "id": "1"
+                                }'>
+                        <p class="text-lg font-semibold drop-shadow-md" style="color: #ffffff">LEGRAND, Alex</p>
+                        <p class="text-lg font-semibold text-white drop-shadow-md" style="color: #ffffff}">600000001</p>
+                    </div>
+
+                    <div class="fc-event p-2 rounded-lg text-center shadow-md cursor-pointer transition transform hover:scale-105 border border-white/40"
+                         style="background: orange"
+                         data-event='{
+                                "title": "Nina",
+                                "color": "orange",
+                                "id": "1"
+                                }'>
+                        <p class="text-lg font-semibold drop-shadow-md" style="color: #ffffff">DUPONT, Nina</p>
+                        <p class="text-lg font-semibold text-white drop-shadow-md" style="color: #ffffff}">600000002</p>
+                    </div>
+
+                    <div class="fc-event p-2 rounded-lg text-center shadow-md cursor-pointer transition transform hover:scale-105 border border-white/40"
+                         style="background: pink"
+                         data-event='{
+                                "title": "Emma",
+                                "color": "pink",
+                                "id": "1"
+                                }'>
+                        <p class="text-lg font-semibold drop-shadow-md" style="color: #000000">WATSON, Emma</p>
+                        <p class="text-lg font-semibold text-white drop-shadow-md" style="color: #000000">600000003</p>
+                    </div>
+
+                    <div class="fc-event p-2 rounded-lg text-center shadow-md cursor-pointer transition transform hover:scale-105 border border-white/40"
+                         style="background: red"
+                         data-event='{
+                                "title": "Thomas",
+                                "color": "red",
+                                "id": "1"
+                                }'>
+                        <p class="text-lg font-semibold drop-shadow-md" style="color: #ffffff">ANDREW, Thomas</p>
+                        <p class="text-lg font-semibold text-white drop-shadow-md" style="color: #ffffff}">600000004</p>
+                    </div>
+
+                    <div class="fc-event p-2 rounded-lg text-center shadow-md cursor-pointer transition transform hover:scale-105 border border-white/40"
+                         style="background: teal"
+                         data-event='{
+                                "title": "Lucas",
+                                "color": "teal",
+                                "id": "1"
+                                }'>
+                        <p class="text-lg font-semibold drop-shadow-md" style="color: #ffffff">DELCOURT, Lucas</p>
+                        <p class="text-lg font-semibold text-white drop-shadow-md" style="color: #ffffff}">600000005</p>
+                    </div>
+
+                    <div class="fc-event p-2 rounded-lg text-center shadow-md cursor-pointer transition transform hover:scale-105 border border-white/40"
+                         style="background: blue"
+                         data-event='{
+                                "title": "Sarah",
+                                "color": "blue",
+                                "id": "1"
+                                }'>
+                        <p class="text-lg font-semibold drop-shadow-md" style="color: #ffffff">FORTUNE, Sarah</p>
+                        <p class="text-lg font-semibold text-white drop-shadow-md" style="color: #ffffff}">600000006</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+
+</main>
+</body>
+</html>

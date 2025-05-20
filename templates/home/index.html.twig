@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} - Accueil{% endblock %}
+
+{% block body %}
+    <section class="bg-white py-20 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold text-gray-800 mb-4">Bonjour, je suis Sofien Cherchari</h1>
+        <p class="text-lg md:text-xl text-gray-600">Étudiant en BUT Informatique à Nancy - Développeur Web Symfony & JavaScript</p>
+    </section>
+
+    <section id="about" class="bg-gray-50 py-16 px-6 md:px-12">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-semibold text-gray-800 mb-6">À propos de moi</h2>
+            <p class="text-gray-700 text-lg">
+                Actuellement en 2ᵉ année de BUT Informatique à l’IUT Nancy-Charlemagne, j’ai 19 ans et je suis passionné par le développement web.
+                Je me spécialise dans les technologies modernes comme Symfony, JavaScript, et Tailwind CSS.
+                Mon objectif est de créer des interfaces élégantes, fonctionnelles et performantes.
+            </p>
+        </div>
+    </section>
+
+    <section id="projects" class="bg-white py-16 px-6 md:px-12">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-3xl font-semibold text-gray-800 mb-6">Mes projets</h2>
+            <p class="text-gray-700 mb-4">Voici quelques projets sur lesquels j’ai travaillé récemment :</p>
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Exemple de projet -->
+                <div class="bg-gray-100 p-6 rounded-lg shadow">
+                    <h3 class="text-xl font-bold mb-2">Gestionnaire d’astreintes</h3>
+                    <p class="text-gray-600">Application Symfony pour la planification automatique des périodes d’astreinte à l’ICN Business School.</p>
+                    <p class="ml-5">
+                        ➡️<a class="text-blue-700" href="{{ path("app_maquette") }}" target="_blank">Maquette semi-fonctionnel du projet</a>
+                    </p>
+                </div>
+                <div class="bg-gray-100 p-6 rounded-lg shadow">
+                    <h3 class="text-xl font-bold mb-2">Ce site web</h3>
+                    <p class="text-gray-600">Site web développé avec Symfony et Tailwind pour présenter mon profil et mes compétences.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
