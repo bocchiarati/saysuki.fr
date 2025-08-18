@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planning Aléatoire</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<h1>Générateur de Planning Aléatoire</h1>
+<p style="text-align: center; color: red; font-size: large">/!\ Re-vérifier les données pré-remplis qui peuvent êtres approximatives</p>
+<form id="personForm">
+    <h2>Personnes : </h2>
+    <label for="person1">Personne 1 : </label>
+    <input type="text" id="person1" placeholder="Nom de la personne 1" value="Nadia" required><br>
+    <label for="person2">Personne 2 : </label>
+    <input type="text" id="person2" placeholder="Nom de la personne 2" value="Nadine" required><br>
+    <label for="person3">Personne 3 : </label>
+    <input type="text" id="person3" placeholder="Nom de la personne 3" value="Ambre" required><br>
+    <label for="person4">Personne 4 : </label>
+    <input type="text" id="person4" placeholder="Nom de la personne 4" value="Gigi" required><br>
+    <label for="person5">Personne 5 : </label>
+    <input type="text" id="person5" placeholder="Nom de la personne 5" value="Hugo" required><br>
+    <label for="person6">Personne 6 : </label>
+    <input type="text" id="person6" placeholder="Nom de la personne 6" value="Muriel" readonly><br><br>
+
+    <h2>Semaines</h2>
+    <label>Semaine de début :
+        <input id="semaineDebut" type="number" placeholder="semaine" value="36">
+        <input id="anneeDebut" type="number" placeholder="annee">
+    </label>
+    <label>Semaine de début :
+        <input id="semaineFin" type="number" placeholder="semaine" value="27">
+        <input id="anneeFin" type="number" placeholder="annee">
+    </label>
+
+    <h2>Vacances</h2>
+    <h4>Toussain</h4>
+    <label>Semaine de début :
+        <input id="semaineDebutToussain" type="number" placeholder="semaine" value="42">
+        <input id="anneeDebutToussain" type="number" placeholder="annee">
+    </label>
+    <label>Semaine de Fin :
+        <input id="semaineFinToussain" type="number" placeholder="semaine" value="43">
+        <input id="anneeFinToussain" type="number" placeholder="annee">
+    </label>
+
+    <h4>Noël</h4>
+    <label>Semaine de début :
+        <input id="semaineDebutNoel" type="number" placeholder="semaine" value="51">
+        <input id="anneeDebutNoel" type="number" placeholder="annee">
+    </label>
+    <label>Semaine de Fin :
+        <input id="semaineFinNoel" type="number" placeholder="semaine" value="52">
+        <input id="anneeFinNoel" type="number" placeholder="annee">
+    </label>
+
+    <h4>Hiver (février)</h4>
+    <label>Semaine de début :
+        <input id="semaineDebutHiver" type="number" placeholder="semaine" value="6">
+        <input id="anneeDebutHiver" type="number" placeholder="annee">
+    </label>
+    <label>Semaine de Fin :
+        <input id="semaineFinHiver" type="number" placeholder="semaine" value="7">
+        <input id="anneeFinHiver" type="number" placeholder="annee">
+    </label>
+
+    <h4>Pâque</h4>
+    <label>Semaine de début :
+        <input id="semaineDebutPaque" type="number" placeholder="semaine" value="14">
+        <input id="anneeDebutPaque" type="number" placeholder="annee">
+    </label>
+    <label>Semaine de Fin :
+        <input id="semaineFinPaque" type="number" placeholder="semaine" value="15">
+        <input id="anneeFinPaque" type="number" placeholder="annee">
+    </label>
+
+    <button type="button" id="generate">Générer le Planning</button>
+</form>
+
+<div id="planning">
+    <!-- Le planning généré s'affichera ici -->
+</div>
+
+<script src="planning.js"></script>
+</body>
+</html>

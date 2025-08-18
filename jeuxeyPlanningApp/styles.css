@@ -1,0 +1,120 @@
+/* Styles généraux */
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #007bff;
+}
+
+button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Styles du formulaire */
+form {
+    max-width: 500px;
+    margin: 0 auto 30px;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-top: 15px;
+    color: #555;
+}
+
+form input {
+    width: calc(100% - 20px); /* Assure une bonne taille dans le conteneur */
+    padding: 10px;
+    font-size: 0.9rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+form input:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+form button {
+    margin-top: 20px;
+    width: 100%;
+}
+
+/* Planning généré */
+#planning {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.semaine {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+
+.semaine:last-child {
+    border-bottom: none;
+}
+
+h2 {
+    color: #007bff;
+}
+
+h3 {
+    margin-top: 15px;
+    color: #444;
+}
+
+p {
+    margin: 5px 0;
+}
+
+/* Responsive design pour petits écrans */
+@media (max-width: 600px) {
+    form input {
+        font-size: 0.8rem;
+    }
+
+    button {
+        font-size: 0.9rem;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h2, h3 {
+        font-size: 1.2rem;
+    }
+}
